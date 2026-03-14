@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
 
     const buffer = await renderToBuffer(<PortfolioPDF data={data} />);
 
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
